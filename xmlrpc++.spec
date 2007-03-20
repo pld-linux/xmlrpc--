@@ -13,7 +13,10 @@ Source0:	http://dl.sourceforge.net/xmlrpcpp/%{name}%{version}.tar.gz
 Patch0:		%{name}-compile.patch
 Patch1:		%{name}-use_autotools.patch
 URL:		http://xmlrpcpp.sourcforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
