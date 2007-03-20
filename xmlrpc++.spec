@@ -1,7 +1,7 @@
 Summary:	XmlRpc++ is a C++ implementation of the XML-RPC
 Name:		xmlrpc++
 Version:	0.7
-Release:	0.1
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/xmlrpcpp/%{name}%{version}.tar.gz
