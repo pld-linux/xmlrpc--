@@ -1,3 +1,7 @@
+# TODO:
+# - build doxygen docs
+# - check compile.patch
+#
 Summary:	XmlRpc++ is a C++ implementation of the XML-RPC
 Name:		xmlrpc++
 Version:	0.7
