@@ -7,6 +7,7 @@ Group:		Libraries
 Source0:	http://dl.sourceforge.net/xmlrpcpp/%{name}%{version}.tar.gz
 # Source0-md5:	d88f0f9c36d938316d672d16f6c37d7e
 Patch0:		%{name}-compile.patch
+Patch1:		%{name}-use_autotools.patch
 URL:		http://xmlrpcpp.sourcforge.net/
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -45,8 +46,14 @@ Statyczna biblioteka XmlRpc++.
 %prep
 %setup -q -n %{name}%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__automake}
+%{__autoconf}
+%configure
 %{__make}
 
 %install
