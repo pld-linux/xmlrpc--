@@ -1,0 +1,49 @@
+--- xmlrpc++0.7/configure.ac.orig	1970-01-01 00:00:00.000000000 +0000
++++ xmlrpc++0.7/configure.ac	2007-03-13 19:28:22.000000000 +0000
+@@ -0,0 +1,7 @@
++AC_INIT(src/XmlRpc.h)
++
++AC_PROG_CXX
++AM_PROG_LIBTOOL
++AM_INIT_AUTOMAKE( xmlrpcpp, 0.7 )
++
++AC_OUTPUT([ Makefile src/Makefile test/Makefile ])
+--- xmlrpc++0.7/src/Makefile.am.orig	1970-01-01 00:00:00.000000000 +0000
++++ xmlrpc++0.7/src/Makefile.am	2007-03-12 15:10:15.000000000 +0000
+@@ -0,0 +1,11 @@
++lib_LTLIBRARIES = libXmlRpc.la
++
++libXmlRpc_la_SOURCES = XmlRpcClient.cpp XmlRpcDispatch.cpp XmlRpcServer.cpp \
++		       XmlRpcServerConnection.cpp XmlRpcServerMethod.cpp \
++		       XmlRpcSocket.cpp XmlRpcSource.cpp \
++		       XmlRpcUtil.cpp XmlRpcValue.cpp
++
++include_HEADERS = XmlRpc.h XmlRpcClient.h XmlRpcDispatch.h XmlRpcException.h \
++		  XmlRpcSocket.h XmlRpcServer.h XmlRpcServerConnection.h \
++		  XmlRpcServerMethod.h XmlRpcSource.h \
++		  XmlRpcUtil.h XmlRpcValue.h
+--- xmlrpc++0.7/test/Makefile.am.orig	1970-01-01 00:00:00.000000000 +0000
++++ xmlrpc++0.7/test/Makefile.am	2007-03-12 14:26:13.000000000 +0000
+@@ -0,0 +1,18 @@
++noinst_PROGRAMS = HelloClient HelloServer TestBase64Client TestBase64Server TestValues TestXml Validator
++
++HelloClient_SOURCES = HelloClient.cpp
++
++HelloServer_SOURCES = HelloServer.cpp
++
++TestBase64Client_SOURCES = TestBase64Client.cpp
++
++TestBase64Server_SOURCES = TestBase64Server.cpp
++
++TestValues_SOURCES = TestValues.cpp
++
++TestXml_SOURCES = TestXml.cpp
++
++Validator_SOURCES = Validator.cpp
++
++CXXFLAGS = -I$(top_srcdir)/src
++LDADD = $(top_srcdir)/src/libXmlRpc.la
+--- xmlrpc++0.7/Makefile.am.orig	1970-01-01 00:00:00.000000000 +0000
++++ xmlrpc++0.7/Makefile.am	2007-03-12 13:48:52.000000000 +0000
+@@ -0,0 +1 @@
++SUBDIRS = src test
