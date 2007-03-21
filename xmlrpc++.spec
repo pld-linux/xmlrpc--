@@ -3,6 +3,7 @@
 # - check compile.patch
 #
 Summary:	XmlRpc++ is a C++ implementation of the XML-RPC
+Summary(pl.UTF-8):	Implementacja protokołu XML-RPC w C++
 Name:		xmlrpc++
 Version:	0.7
 Release:	1
@@ -20,11 +21,19 @@ BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-XmlRpc++ is an implementation of the XmlRpc protocol written in C++,
+XmlRpc++ is an implementation of the XML-RPC protocol written in C++,
 based upon Shilad Sen's excellent py-xmlrpc library. XmlRpc++ is
-designed to make it easy to incorporate XmlRpc client and server
+designed to make it easy to incorporate XML-RPC client and server
 support into C++ applications. Or use both client and server objects
 in your app for easy peer-to-peer support.
+
+%description -l pl.UTF-8
+XmlRpc++ jest implementacją protokołu XML-RPC napisaną w C++.
+Bazuje na znakomitej bibliotece py-xmlrpc autorstwa Shilad Sen.
+XmlRpc++ została zaprojektowana w celu ułatwienia włączenia
+obsługi klienta i serwera XML-RPC do aplikacji napisanych z
+wykorzystaniem C++, lub użycia obiektów klienta i serwera w
+aplikacjach peer-to-peer.
 
 %package devel
 Summary:	Header files for XmlRpc++ library
