@@ -17,7 +17,7 @@ URL:		http://xmlrpcpp.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,6 +40,7 @@ Summary:	Header files for XmlRpc++ library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki XmlRpc++
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libstdc++-devel
 
 %description devel
 Header files for XmlRpc++ library.
