@@ -1,0 +1,64 @@
+--- xmlrpc++0.7/src/XmlRpcClient.cpp~	2009-10-16 12:06:13.000000000 +0300
++++ xmlrpc++0.7/src/XmlRpcClient.cpp	2009-10-16 12:06:14.897896482 +0300
+@@ -6,7 +6,8 @@
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
+-
++#include <strings.h>
++#include <string.h>
+ 
+ using namespace XmlRpc;
+ 
+--- xmlrpc++0.7/src/XmlRpcServerConnection.cpp~	2003-03-06 19:25:37.000000000 +0200
++++ xmlrpc++0.7/src/XmlRpcServerConnection.cpp	2009-10-16 12:06:58.377060636 +0300
+@@ -6,6 +6,8 @@
+ #ifndef MAKEDEPEND
+ # include <stdio.h>
+ # include <stdlib.h>
++# include <strings.h>
++# include <string.h>
+ #endif
+ 
+ using namespace XmlRpc;
+--- xmlrpc++0.7/src/XmlRpcSocket.cpp~	2003-03-06 19:25:37.000000000 +0200
++++ xmlrpc++0.7/src/XmlRpcSocket.cpp	2009-10-16 12:07:38.521221531 +0300
+@@ -22,6 +22,7 @@
+ # include <netdb.h>
+ # include <errno.h>
+ # include <fcntl.h>
++# include <string.h>
+ }
+ #endif  // _WINDOWS
+ 
+--- xmlrpc++0.7/test/HelloClient.cpp~	2003-03-06 19:25:37.000000000 +0200
++++ xmlrpc++0.7/test/HelloClient.cpp	2009-10-16 12:08:23.880898744 +0300
+@@ -3,6 +3,8 @@
+ // on windows)
+ #include "XmlRpc.h"
+ #include <iostream>
++#include <stdlib.h>
++
+ using namespace XmlRpc;
+ 
+ int main(int argc, char* argv[])
+--- xmlrpc++0.7/test/TestValues.cpp~	2003-03-06 19:25:37.000000000 +0200
++++ xmlrpc++0.7/test/TestValues.cpp	2009-10-16 12:08:51.960426846 +0300
+@@ -1,6 +1,7 @@
+ // TestValues.cpp : Test XML encoding and decoding of XmlRpcValues.
+ 
+ #include <stdlib.h>
++#include <stdio.h>
+ 
+ #include "XmlRpcValue.h"
+ 
+--- xmlrpc++0.7/test/Validator.cpp~	2009-10-16 12:04:42.000000000 +0300
++++ xmlrpc++0.7/test/Validator.cpp	2009-10-16 12:09:58.830611032 +0300
+@@ -4,6 +4,7 @@
+ using namespace XmlRpc;
+ 
+ #include <iostream>
++#include <stdlib.h>
+ 
+ 
+ XmlRpcServer s;

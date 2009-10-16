@@ -13,11 +13,13 @@ Source0:	http://dl.sourceforge.net/xmlrpcpp/%{name}%{version}.tar.gz
 # Source0-md5:	d88f0f9c36d938316d672d16f6c37d7e
 Patch0:		%{name}-compile.patch
 Patch1:		%{name}-use_autotools.patch
+Patch2:		gcc44.patch
 URL:		http://xmlrpcpp.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -28,12 +30,11 @@ support into C++ applications. Or use both client and server objects
 in your app for easy peer-to-peer support.
 
 %description -l pl.UTF-8
-XmlRpc++ jest implementacją protokołu XML-RPC napisaną w C++.
-Bazuje na znakomitej bibliotece py-xmlrpc autorstwa Shilad Sen.
-XmlRpc++ została zaprojektowana w celu ułatwienia włączenia
-obsługi klienta i serwera XML-RPC do aplikacji napisanych z
-wykorzystaniem C++, lub użycia obiektów klienta i serwera w
-aplikacjach peer-to-peer.
+XmlRpc++ jest implementacją protokołu XML-RPC napisaną w C++. Bazuje
+na znakomitej bibliotece py-xmlrpc autorstwa Shilad Sen. XmlRpc++
+została zaprojektowana w celu ułatwienia włączenia obsługi klienta i
+serwera XML-RPC do aplikacji napisanych z wykorzystaniem C++, lub
+użycia obiektów klienta i serwera w aplikacjach peer-to-peer.
 
 %package devel
 Summary:	Header files for XmlRpc++ library
@@ -62,8 +63,10 @@ Statyczna biblioteka XmlRpc++.
 
 %prep
 %setup -q -n %{name}%{version}
+find -name '*.cpp' | xargs %{__sed} -i -e 's,\r$,,'
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -88,14 +91,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.html
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libXmlRpc.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libXmlRpc.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libXmlRpc.so
+%{_libdir}/libXmlRpc.la
 %{_includedir}/*.h
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libXmlRpc.a
