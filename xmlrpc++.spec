@@ -7,15 +7,15 @@ Summary(pl.UTF-8):	Implementacja protokołu XML-RPC w C++
 Name:		xmlrpc++
 Version:	0.7
 Release:	1
-License:	LGPL
+License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/xmlrpcpp/%{name}%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/xmlrpcpp/%{name}%{version}.tar.gz
 # Source0-md5:	d88f0f9c36d938316d672d16f6c37d7e
 Patch0:		%{name}-compile.patch
 Patch1:		%{name}-use_autotools.patch
 Patch2:		gcc44.patch
 URL:		http://xmlrpcpp.sourceforge.net/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
@@ -98,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libXmlRpc.so
 %{_libdir}/libXmlRpc.la
-%{_includedir}/*.h
+%{_includedir}/XmlRpc*.h
 
 %files static
 %defattr(644,root,root,755)
