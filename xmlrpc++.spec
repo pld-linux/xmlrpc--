@@ -64,9 +64,9 @@ Statyczna biblioteka XmlRpc++.
 %prep
 %setup -q -n %{name}%{version}
 find -name '*.cpp' | xargs %{__sed} -i -e 's,\r$,,'
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 %build
 %{__libtoolize}
